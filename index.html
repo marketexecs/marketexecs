@@ -4,10 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Market Execs | Digital Marketing Agency</title>
-  <meta name="description" content="Market Execs helps businesses build a stronger online presence through social media, short form video, website design and digital marketing.">
+  <title>Market Execs | Digital Marketing & Creative</title>
+
+  <meta
+    name="description"
+    content="Market Execs helps businesses build stronger brands through social media, short-form video, web design and digital marketing."
+  >
 
   <style>
+    :root {
+      --bg: #070707;
+      --surface: #0d0d0d;
+      --surface-2: #111111;
+      --border: #242424;
+      --text: #f5f5f2;
+      --muted: #999999;
+      --soft: #6f6f6f;
+      --accent: #dfff00;
+      --max: 1180px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -20,9 +36,21 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #080808;
-      color: #f5f5f5;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(223,255,0,0.045), transparent 25%),
+        radial-gradient(circle at 10% 45%, rgba(255,255,255,0.025), transparent 25%);
+      z-index: -1;
     }
 
     a {
@@ -30,102 +58,171 @@
       text-decoration: none;
     }
 
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 100;
-      background: rgba(8, 8, 8, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #202020;
+      background: rgba(7, 7, 7, 0.76);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     nav {
-      height: 76px;
+      height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
       align-items: center;
-      font-size: 14px;
-      color: #bdbdbd;
+      gap: 32px;
+      color: #b8b8b8;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
     }
 
     .nav-links a:hover {
       color: white;
     }
 
-    .nav-button {
-      padding: 11px 18px;
-      border: 1px solid #444;
+    .nav-cta {
+      padding: 11px 17px;
+      border: 1px solid #3b3b3b;
       border-radius: 999px;
       color: white !important;
     }
 
+    .nav-cta:hover {
+      border-color: #777;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
     .hero {
-      min-height: 88vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 100px 0;
       position: relative;
+      padding: 150px 0 100px;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "";
+    .hero-grid {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 65%);
-      top: -200px;
-      right: -150px;
+      inset: 0;
+      opacity: 0.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 70px 70px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
       pointer-events: none;
     }
 
+    .hero-glow {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      right: -230px;
+      top: 80px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(223,255,0,0.13),
+        rgba(223,255,0,0.035) 35%,
+        transparent 68%
+      );
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+    }
+
     .eyebrow {
-      display: inline-block;
-      padding: 8px 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
       border: 1px solid #292929;
       border-radius: 999px;
-      color: #aaa;
-      font-size: 12px;
-      letter-spacing: 1px;
+      color: #b5b5b5;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      margin-bottom: 25px;
+      margin-bottom: 27px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(223,255,0,0.8);
     }
 
     h1 {
-      max-width: 850px;
-      font-size: clamp(52px, 8vw, 94px);
-      line-height: 0.95;
-      letter-spacing: -5px;
-      margin-bottom: 30px;
+      max-width: 980px;
+      font-size: clamp(58px, 9vw, 116px);
+      line-height: 0.88;
+      letter-spacing: -7px;
+      font-weight: 900;
+      margin-bottom: 32px;
     }
 
-    .hero p {
-      max-width: 650px;
-      color: #a7a7a7;
+    h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      color: #a5a5a5;
       font-size: 18px;
+      line-height: 1.7;
       margin-bottom: 38px;
     }
 
     .buttons {
       display: flex;
-      gap: 14px;
+      align-items: center;
+      gap: 13px;
       flex-wrap: wrap;
     }
 
@@ -133,26 +230,28 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 23px;
+      min-height: 50px;
+      padding: 0 21px;
       border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 800;
       transition: 0.25s ease;
     }
 
     .button-primary {
-      background: white;
+      background: var(--accent);
       color: #080808;
     }
 
     .button-primary:hover {
       transform: translateY(-3px);
-      background: #ddd;
+      box-shadow: 0 12px 35px rgba(223,255,0,0.14);
     }
 
     .button-secondary {
       border: 1px solid #333;
       color: white;
+      background: rgba(255,255,255,0.025);
     }
 
     .button-secondary:hover {
@@ -160,211 +259,592 @@
       transform: translateY(-3px);
     }
 
+    .hero-bottom {
+      margin-top: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      color: #686868;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .scroll-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scroll-line::before {
+      content: "";
+      width: 45px;
+      height: 1px;
+      background: #444;
+    }
+
+    /* GENERAL SECTIONS */
+
     section {
-      padding: 110px 0;
+      padding: 125px 0;
       border-top: 1px solid #171717;
     }
 
     .section-label {
-      color: #777;
-      font-size: 12px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
     }
 
     .section-title {
-      font-size: clamp(36px, 5vw, 60px);
-      letter-spacing: -3px;
-      line-height: 1;
-      margin-bottom: 55px;
+      max-width: 820px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin-bottom: 65px;
     }
+
+    .section-intro {
+      max-width: 610px;
+      color: #888;
+      font-size: 17px;
+      line-height: 1.7;
+      margin-top: -35px;
+      margin-bottom: 60px;
+    }
+
+    /* SERVICES */
 
     .services {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 15px;
     }
 
     .service {
-      min-height: 250px;
-      padding: 32px;
-      border: 1px solid #242424;
+      min-height: 310px;
+      padding: 30px;
+      border: 1px solid var(--border);
       border-radius: 24px;
-      background: linear-gradient(145deg, #111, #0b0b0b);
-      transition: 0.3s ease;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.035), transparent 55%),
+        var(--surface);
+      position: relative;
+      overflow: hidden;
+      transition: 0.35s ease;
+    }
+
+    .service::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -70px;
+      bottom: -70px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(223,255,0,0.10), transparent 68%);
+      transition: 0.35s ease;
     }
 
     .service:hover {
-      transform: translateY(-6px);
-      border-color: #444;
+      transform: translateY(-7px);
+      border-color: #414141;
+    }
+
+    .service:hover::after {
+      transform: scale(1.35);
+    }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 70px;
     }
 
     .service-number {
       color: #666;
-      font-size: 13px;
-      margin-bottom: 55px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .service-arrow {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #303030;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 15px;
     }
 
     .service h3 {
-      font-size: 25px;
+      font-size: 28px;
       margin-bottom: 12px;
+      letter-spacing: -1px;
     }
 
     .service p {
-      color: #999;
-      font-size: 15px;
-      max-width: 430px;
+      max-width: 470px;
+      color: #858585;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
-    .work-grid {
+    /* SHOWCASE */
+
+    .showcase {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 15px;
     }
 
-    .work-card {
-      min-height: 330px;
-      border-radius: 24px;
-      border: 1px solid #242424;
-      background: #111;
+    .showcase-main,
+    .showcase-side {
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      background: #101010;
+    }
+
+    .showcase-main {
+      min-height: 560px;
+      padding: 30px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .showcase-side {
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .visual-main {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(223,255,0,0.18), transparent 22%),
+        linear-gradient(135deg, #151515 0%, #080808 65%);
+    }
+
+    .visual-main::before {
+      content: "MARKET";
+      position: absolute;
+      top: 35%;
+      left: 8%;
+      font-size: clamp(65px, 11vw, 145px);
+      font-weight: 900;
+      letter-spacing: -8px;
+      color: rgba(255,255,255,0.035);
+      transform: rotate(-7deg);
+    }
+
+    .visual-main::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(223,255,0,0.25);
+      border-radius: 50%;
+      right: 8%;
+      top: 15%;
+      box-shadow:
+        0 0 0 35px rgba(223,255,0,0.025),
+        0 0 0 70px rgba(223,255,0,0.015);
+    }
+
+    .showcase-content {
+      position: relative;
+      z-index: 2;
+      max-width: 500px;
+    }
+
+    .project-tag {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .showcase-content h3 {
+      font-size: 42px;
+      line-height: 0.98;
+      letter-spacing: -2px;
+      margin-bottom: 13px;
+    }
+
+    .showcase-content p {
+      color: #8c8c8c;
+      max-width: 430px;
+      font-size: 14px;
+    }
+
+    .project-card {
+      flex: 1;
       padding: 25px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      overflow: hidden;
       position: relative;
+      min-height: 280px;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
     }
 
-    .work-card::before {
+    .project-card:last-child {
+      border-bottom: 0;
+    }
+
+    .project-card::before {
       content: "";
       position: absolute;
-      inset: 15%;
-      background: radial-gradient(circle, #333, transparent 65%);
-      opacity: 0.45;
+      width: 170px;
+      height: 170px;
+      right: -40px;
+      top: -40px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.07), transparent 68%);
     }
 
-    .work-card > * {
+    .project-card:nth-child(2)::before {
+      background: radial-gradient(circle, rgba(223,255,0,0.09), transparent 68%);
+    }
+
+    .project-card span {
       position: relative;
       z-index: 2;
+      color: #666;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 7px;
     }
 
-    .work-card span {
-      color: #777;
-      font-size: 12px;
+    .project-card h3 {
+      position: relative;
+      z-index: 2;
+      font-size: 25px;
+      letter-spacing: -1px;
+    }
+
+    .sample-note {
+      color: #5f5f5f;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-top: 25px;
     }
 
-    .work-card h3 {
-      font-size: 24px;
-      margin-top: 7px;
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--surface);
     }
+
+    .stat {
+      padding: 34px 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      color: #777;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ABOUT */
 
     .about {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 70px;
+      gap: 90px;
       align-items: center;
     }
 
     .about h2 {
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1;
-      letter-spacing: -3px;
-    }
-
-    .about-text p {
-      color: #999;
-      margin-bottom: 20px;
-      font-size: 17px;
-    }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .step {
-      padding: 30px;
-      border-top: 1px solid #333;
-    }
-
-    .step-number {
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .step h3 {
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
-
-    .step p {
-      color: #888;
-      font-size: 15px;
-    }
-
-    .contact {
-      text-align: center;
-      padding-bottom: 140px;
-    }
-
-    .contact h2 {
-      max-width: 800px;
-      margin: 0 auto 25px;
-      font-size: clamp(45px, 7vw, 80px);
+      max-width: 570px;
+      font-size: clamp(42px, 5vw, 68px);
       line-height: 0.95;
       letter-spacing: -4px;
     }
 
-    .contact p {
-      max-width: 550px;
-      margin: 0 auto 35px;
-      color: #999;
+    .about-text {
+      color: #8b8b8b;
+      font-size: 16px;
+      line-height: 1.8;
     }
+
+    .about-text p {
+      margin-bottom: 22px;
+    }
+
+    .about-list {
+      margin-top: 35px;
+      display: grid;
+      gap: 13px;
+    }
+
+    .about-list div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #b5b5b5;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(223,255,0,0.10);
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    /* PROCESS */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--surface);
+      min-height: 260px;
+    }
+
+    .step-number {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-bottom: 70px;
+    }
+
+    .step h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .step p {
+      color: #7f7f7f;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* CTA */
+
+    .contact {
+      padding: 150px 0 165px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      left: 50%;
+      top: 20%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(223,255,0,0.10), transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact h2 {
+      max-width: 900px;
+      margin: 0 auto 24px;
+      font-size: clamp(50px, 8vw, 100px);
+      line-height: 0.88;
+      letter-spacing: -6px;
+    }
+
+    .contact p {
+      max-width: 580px;
+      margin: 0 auto 35px;
+      color: #888;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
 
     footer {
       border-top: 1px solid #171717;
       padding: 30px 0;
-      color: #666;
-      font-size: 13px;
+      color: #626262;
+      font-size: 11px;
     }
 
     footer .container {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
-    @media (max-width: 800px) {
+    .footer-brand {
+      color: #aaa;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .container {
+        width: min(100% - 34px, var(--max));
+      }
+
       .nav-links {
         display: none;
       }
 
+      .hero {
+        padding-top: 130px;
+      }
+
       h1 {
+        font-size: clamp(53px, 15vw, 88px);
+        letter-spacing: -5px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-bottom {
+        margin-top: 70px;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      .section-title {
         letter-spacing: -3px;
+        margin-bottom: 45px;
       }
 
       .services,
-      .work-grid,
+      .showcase,
       .about,
       .process {
         grid-template-columns: 1fr;
       }
 
-      .about {
-        gap: 35px;
+      .showcase-main {
+        min-height: 430px;
       }
 
-      .work-card {
-        min-height: 250px;
+      .showcase-side {
+        min-height: auto;
+      }
+
+      .project-card {
+        min-height: 220px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about {
+        gap: 45px;
+      }
+
+      .contact h2 {
+        letter-spacing: -4px;
       }
 
       footer .container {
         flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-bottom {
+        display: none;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .service {
+        min-height: 280px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .stat:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat:last-child {
+        border-bottom: 0;
       }
     }
   </style>
@@ -372,16 +852,18 @@
 
 <body>
 
+  <!-- NAVIGATION -->
+
   <header>
     <div class="container">
       <nav>
-        <a href="#" class="logo">MARKET EXECS</a>
+        <a href="#" class="logo">MARKET <span>EXECS</span></a>
 
         <div class="nav-links">
           <a href="#services">Services</a>
           <a href="#work">Work</a>
           <a href="#process">Process</a>
-          <a href="#contact" class="nav-button">Let's Work</a>
+          <a href="#contact" class="nav-cta">Start a Project</a>
         </div>
       </nav>
     </div>
@@ -389,184 +871,367 @@
 
   <main>
 
+    <!-- HERO -->
+
     <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+
       <div class="container">
-        <span class="eyebrow">Digital Marketing Agency</span>
+        <div class="hero-content">
 
-        <h1>Make your business impossible to ignore.</h1>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Digital Marketing & Creative
+          </div>
 
-        <p>
-          Market Execs helps businesses build a stronger online presence
-          through social media content, short form video, website design
-          and digital marketing.
-        </p>
+          <h1>
+            Make your brand
+            <span class="accent">impossible</span>
+            to ignore.
+          </h1>
 
-        <div class="buttons">
-          <a href="#contact" class="button button-primary">Let's Work</a>
-          <a href="#services" class="button button-secondary">View Services</a>
+          <p class="hero-copy">
+            Market Execs helps businesses build a stronger digital presence
+            through content, short-form video, web design and marketing
+            built to make people pay attention.
+          </p>
+
+          <div class="buttons">
+            <a href="#contact" class="button button-primary">
+              Start a Project
+            </a>
+
+            <a href="#work" class="button button-secondary">
+              View Our Work
+            </a>
+          </div>
+
+          <div class="hero-bottom">
+            <div>Content / Digital / Web</div>
+            <div class="scroll-line">Scroll to explore</div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- SERVICES -->
+
     <section id="services">
       <div class="container">
-        <div class="section-label">What we do</div>
-        <h2 class="section-title">Built to make<br>your brand stand out.</h2>
+
+        <div class="section-label">01 / Services</div>
+
+        <h2 class="section-title">
+          Everything your brand needs to look the part.
+        </h2>
+
+        <p class="section-intro">
+          From the content people see every day to the website they land on,
+          we build digital experiences designed to make businesses look
+          sharper, clearer and more professional.
+        </p>
 
         <div class="services">
 
           <div class="service">
-            <div class="service-number">01</div>
+            <div class="service-top">
+              <span class="service-number">01</span>
+              <span class="service-arrow">↗</span>
+            </div>
+
             <h3>Social Media Content</h3>
+
             <p>
-              Clean, engaging posts designed to make your business
-              look consistent and professional across social platforms.
+              Consistent, professional content designed around your brand,
+              audience and platform.
             </p>
           </div>
 
           <div class="service">
-            <div class="service-number">02</div>
+            <div class="service-top">
+              <span class="service-number">02</span>
+              <span class="service-arrow">↗</span>
+            </div>
+
             <h3>Short Form Video</h3>
+
             <p>
-              Scroll stopping short form content built for platforms
-              like Instagram, TikTok and YouTube.
+              Attention-focused videos built for Instagram, TikTok and
+              YouTube Shorts.
             </p>
           </div>
 
           <div class="service">
-            <div class="service-number">03</div>
+            <div class="service-top">
+              <span class="service-number">03</span>
+              <span class="service-arrow">↗</span>
+            </div>
+
             <h3>Website Design</h3>
+
             <p>
-              Modern websites that give your business a stronger
-              first impression and make it easier for customers to connect.
+              Modern websites that turn a first visit into a strong first
+              impression.
             </p>
           </div>
 
           <div class="service">
-            <div class="service-number">04</div>
+            <div class="service-top">
+              <span class="service-number">04</span>
+              <span class="service-arrow">↗</span>
+            </div>
+
             <h3>Digital Marketing</h3>
+
             <p>
-              Practical digital strategies that help businesses
-              improve their online presence and reach more people.
+              Practical digital strategies built around visibility,
+              consistency and growth.
             </p>
           </div>
 
         </div>
       </div>
     </section>
+
+    <!-- WORK -->
 
     <section id="work">
       <div class="container">
-        <div class="section-label">Selected work</div>
-        <h2 class="section-title">Work that speaks<br>before you do.</h2>
 
-        <div class="work-grid">
+        <div class="section-label">02 / Selected Work</div>
 
-          <div class="work-card">
-            <span>Social Media</span>
-            <h3>Restaurant Campaign</h3>
+        <h2 class="section-title">
+          The work should speak before you do.
+        </h2>
+
+        <div class="showcase">
+
+          <div class="showcase-main">
+            <div class="visual-main"></div>
+
+            <div class="showcase-content">
+              <div class="project-tag">Sample Concept / 01</div>
+
+              <h3>Restaurant Social Campaign</h3>
+
+              <p>
+                A premium social campaign concept designed to make a local
+                restaurant look established, modern and worth visiting.
+              </p>
+
+              <div class="sample-note">
+                Sample work — visual to be added
+              </div>
+            </div>
           </div>
 
-          <div class="work-card">
-            <span>Brand Content</span>
-            <h3>Real Estate Campaign</h3>
-          </div>
+          <div class="showcase-side">
 
-          <div class="work-card">
-            <span>Digital Content</span>
-            <h3>Fitness Campaign</h3>
+            <div class="project-card">
+              <span>Sample Concept / 02</span>
+              <h3>Real Estate Content</h3>
+            </div>
+
+            <div class="project-card">
+              <span>Sample Concept / 03</span>
+              <h3>Fitness Brand Content</h3>
+            </div>
+
           </div>
 
         </div>
+
       </div>
     </section>
+
+    <!-- STATS -->
 
     <section>
       <div class="container">
-        <div class="about">
 
-          <h2>Good marketing should make people stop.</h2>
+        <div class="stats">
 
-          <div class="about-text">
-            <p>
-              Your online presence is often the first thing a potential
-              customer sees. We focus on making that first impression count.
-            </p>
+          <div class="stat">
+            <div class="stat-number">04</div>
+            <div class="stat-label">Core Services</div>
+          </div>
 
-            <p>
-              From social content to websites, Market Execs creates
-              clean digital experiences that help businesses look
-              more professional and connect with their audience.
-            </p>
+          <div class="stat">
+            <div class="stat-number">01</div>
+            <div class="stat-label">Focused Goal</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Creative Direction</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Online Presence</div>
           </div>
 
         </div>
+
       </div>
     </section>
 
+    <!-- ABOUT -->
+
+    <section>
+      <div class="container">
+
+        <div class="about">
+
+          <h2>
+            Looking professional isn't optional anymore.
+          </h2>
+
+          <div class="about-text">
+
+            <p>
+              Your digital presence is often the first interaction someone
+              has with your business. That first impression matters.
+            </p>
+
+            <p>
+              Market Execs focuses on creating clean, modern digital
+              experiences that make businesses easier to notice, easier to
+              understand and easier to remember.
+            </p>
+
+            <div class="about-list">
+
+              <div>
+                <span class="check">✓</span>
+                Clean creative direction
+              </div>
+
+              <div>
+                <span class="check">✓</span>
+                Platform-focused content
+              </div>
+
+              <div>
+                <span class="check">✓</span>
+                Modern web experiences
+              </div>
+
+              <div>
+                <span class="check">✓</span>
+                Strategy built around your brand
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+
     <section id="process">
       <div class="container">
-        <div class="section-label">How it works</div>
-        <h2 class="section-title">Simple from start<br>to finish.</h2>
+
+        <div class="section-label">03 / Process</div>
+
+        <h2 class="section-title">
+          Simple from idea to launch.
+        </h2>
 
         <div class="process">
 
           <div class="step">
-            <div class="step-number">01</div>
-            <h3>Tell us what you need</h3>
+            <div class="step-number">01 / DISCOVER</div>
+
+            <h3>Tell us what you're building.</h3>
+
             <p>
-              Share your business, goals, style and what you want
-              your content or website to accomplish.
+              We learn about your business, goals, audience and the type of
+              presence you want to create.
             </p>
           </div>
 
           <div class="step">
-            <div class="step-number">02</div>
-            <h3>We create</h3>
+            <div class="step-number">02 / CREATE</div>
+
+            <h3>We build the direction.</h3>
+
             <p>
-              We turn your ideas into polished digital content
-              designed around your brand.
+              Content, visuals and digital experiences are created around
+              your brand and what you want people to see.
             </p>
           </div>
 
           <div class="step">
-            <div class="step-number">03</div>
-            <h3>You go live</h3>
+            <div class="step-number">03 / LAUNCH</div>
+
+            <h3>Put it in front of people.</h3>
+
             <p>
-              Your finished content is ready to publish and put
-              your business in front of more people.
+              Your finished digital presence is ready to publish, promote
+              and put your business in front of your audience.
             </p>
           </div>
 
         </div>
+
       </div>
     </section>
+
+    <!-- CONTACT -->
 
     <section id="contact" class="contact">
       <div class="container">
 
-        <div class="section-label">Start a project</div>
+        <div class="contact-content">
 
-        <h2>Ready to level up your online presence?</h2>
+          <div class="section-label">
+            04 / Start a Project
+          </div>
 
-        <p>
-          Tell us what you're working on and what you need help with.
-          Let's build something that represents your business properly.
-        </p>
+          <h2>
+            Let's make your business look like the business it can become.
+          </h2>
 
-        <a href="mailto:hello@marketexecs.com" class="button button-primary">
-          Get in Touch
-        </a>
+          <p>
+            Tell us what you're working on, what you need and where you want
+            to take your brand.
+          </p>
+
+          <a href="#contact" class="button button-primary">
+            Get Started
+          </a>
+
+        </div>
 
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
     <div class="container">
-      <span>© 2026 Market Execs. All rights reserved.</span>
-      <span>Digital Marketing • Content • Web</span>
+
+      <span class="footer-brand">
+        MARKET EXECS
+      </span>
+
+      <span>
+        Digital Marketing • Content • Web
+      </span>
+
+      <span>
+        © 2026 Market Execs
+      </span>
+
     </div>
   </footer>
 
