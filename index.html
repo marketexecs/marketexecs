@@ -610,6 +610,35 @@
         flex-wrap: wrap;
       }
     }
+    .work-visual {
+  height: 220px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(245,245,242,.12);
+}
+
+.restaurant-visual {
+  background:
+    linear-gradient(135deg, rgba(223,255,0,.18), rgba(0,0,0,.7)),
+    radial-gradient(circle at 30% 30%, #3d3d3d, #0b0b0b 65%);
+}
+    .realestate-visual {
+  background:
+    linear-gradient(135deg, rgba(223,255,0,.12), rgba(0,0,0,.72)),
+    linear-gradient(160deg, #242424 0%, #111 55%, #070707 100%);
+}
+    .fitness-visual {
+  background:
+    linear-gradient(135deg, rgba(223,255,0,.15), rgba(0,0,0,.75)),
+    radial-gradient(circle at 65% 35%, #383838, #101010 65%);
+}
+    .launch-visual {
+  background:
+    linear-gradient(135deg, rgba(223,255,0,.2), rgba(0,0,0,.78)),
+    linear-gradient(135deg, #303030 0%, #151515 48%, #080808 100%);
+}
   </style>
 </head>
 
@@ -712,25 +741,25 @@
         </div>
 
         <div class="work-grid">
-
-          <article class="work-card">
+<div class="work-visual restaurant-visual"></div>
+         <article class="work-card">
             <div class="work-tag">Concept / Social</div>
             <h3>Restaurant Social Campaign</h3>
             <p>Visual direction designed to make a local restaurant feel more memorable online.</p>
           </article>
-
-          <article class="work-card">
+<div class="work-visual realestate-visual"></div>
+           <article class="work-card">
             <div class="work-tag">Concept / Content</div>
             <h3>Real Estate Content</h3>
             <p>Clean, confident content direction built around properties, people and attention.</p>
           </article>
-
+<div class="work-visual fitness-visual"></div>
           <article class="work-card">
             <div class="work-tag">Concept / Short Form</div>
             <h3>Fitness Brand Content</h3>
             <p>High-energy creative direction designed for short-form platforms and repeat viewing.</p>
           </article>
-
+<div class="work-visual launch-visual"></div>
           <article class="work-card">
             <div class="work-tag">Concept / Digital</div>
             <h3>Brand Launch Direction</h3>
