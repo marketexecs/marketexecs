@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Market Execs | Digital Marketing & Creative</title>
-  <meta name="description" content="Market Execs helps ambitious businesses build a stronger digital presence through social media, short-form content, websites and digital marketing.">
+  <title>Barbershop Short-Form Video Content | Market Execs</title>
+  <meta name="description" content="Market Execs helps local barbershops post short-form video more consistently with editing, captions and monthly content planning.">
   <meta name="theme-color" content="#070707">
 
   <link rel="icon" type="image/png" href="./Symbol%20M%20Black.png">
+  <link rel="canonical" href="https://marketexecs.com/">
 
   <style>
     :root {
@@ -31,6 +32,12 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--lime);
+      outline-offset: 4px;
     }
 
     body {
@@ -270,132 +277,20 @@
       align-self: end;
     }
 
-    /* SERVICES */
+    /* FOUNDING CLIENT PACKAGE */
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-
-    .service {
-      min-height: 300px;
-      padding: 38px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background .25s ease;
-    }
-
-    .service:hover {
-      background: var(--black-2);
-    }
-
-    .service-number {
-      color: var(--lime);
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 80px;
-    }
-
-    .service h3 {
-      font-size: 28px;
-      letter-spacing: -.03em;
-      margin-bottom: 13px;
-    }
-
-    .service p {
-      color: var(--muted);
-      max-width: 430px;
-      line-height: 1.65;
-    }
-
-    /* WORK */
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .work-card {
-      min-height: 430px;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(223,255,0,.16), transparent 25%),
-        linear-gradient(135deg, #151515, #090909);
-      border: 1px solid var(--line);
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .work-card::before {
-      content: "";
-      position: absolute;
-      inset: 25px;
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .work-tag {
-      position: relative;
-      z-index: 2;
-      color: var(--lime);
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-weight: 800;
-      margin-bottom: 9px;
-    }
-
-    .work-card h3 {
-      position: relative;
-      z-index: 2;
-      font-size: 30px;
-      letter-spacing: -.04em;
-    }
-
-    .work-card p {
-      position: relative;
-      z-index: 2;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-
-    .sample-note {
-      margin-top: 18px;
-      color: var(--dim);
-      font-size: 12px;
-    }
-
-    /* STATS */
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-
-    .stat {
-      padding: 35px 25px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 48px;
-      letter-spacing: -.05em;
-      margin-bottom: 5px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .package-card { display:grid; grid-template-columns:.8fr 1.2fr; border:1px solid var(--line); background:var(--black-2); }
+    .price-inline { color:var(--white); }
+    .package-price, .package-details { padding:42px; }
+    .package-price { border-right:1px solid var(--line); }
+    .package-kicker { color:var(--lime); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .package-price p { margin-top:20px; }
+    .package-price strong { font-size:clamp(58px, 7vw, 84px); line-height:1; letter-spacing:-.06em; }
+    .package-price p span { color:var(--muted); font-size:16px; }
+    .package-details h3 { font-size:24px; margin-bottom:20px; }
+    .package-list { display:grid; gap:13px; padding-left:20px; }
+    .package-list li::marker { color:var(--lime); }
+    .package-note { color:var(--muted); margin-top:22px; line-height:1.65; }
 
     /* ABOUT */
 
@@ -552,9 +447,8 @@
         width: 150px;
       }
 
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display:none; }
+      .nav-cta { padding:10px 13px; font-size:12px; }
 
       .hero {
         padding: 130px 0 80px;
@@ -578,23 +472,9 @@
         gap: 25px;
       }
 
-      .service-grid,
-      .work-grid,
-      .process {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .service {
-        min-height: 250px;
-      }
-
-      .service-number {
-        margin-bottom: 55px;
-      }
+      .package-card, .process { grid-template-columns:1fr; }
+      .package-price { border-right:0; border-bottom:1px solid var(--line); }
+      .package-price, .package-details { padding:28px 24px; }
 
       .step h3 {
         margin-top: 55px;
@@ -606,39 +486,18 @@
         align-items: flex-start;
       }
 
-      .footer-links {
-        flex-wrap: wrap;
-      }
+      .footer-links { flex-wrap:wrap; }
+      .contact h2 { font-size:clamp(42px, 12vw, 64px); }
     }
-    .work-visual {
-  height: 220px;
-  border-radius: 18px;
-  margin-bottom: 22px;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid rgba(245,245,242,.12);
-}
 
-.restaurant-visual {
-  background:
-    linear-gradient(135deg, rgba(223,255,0,.18), rgba(0,0,0,.7)),
-    radial-gradient(circle at 30% 30%, #3d3d3d, #0b0b0b 65%);
-}
-    .realestate-visual {
-  background:
-    linear-gradient(135deg, rgba(223,255,0,.12), rgba(0,0,0,.72)),
-    linear-gradient(160deg, #242424 0%, #111 55%, #070707 100%);
-}
-    .fitness-visual {
-  background:
-    linear-gradient(135deg, rgba(223,255,0,.15), rgba(0,0,0,.75)),
-    radial-gradient(circle at 65% 35%, #383838, #101010 65%);
-}
-    .launch-visual {
-  background:
-    linear-gradient(135deg, rgba(223,255,0,.2), rgba(0,0,0,.78)),
-    linear-gradient(135deg, #303030 0%, #151515 48%, #080808 100%);
-}
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { transition-duration:.01ms !important; }
+    }
+
+    .contact-address { margin-top:18px !important; font-size:14px !important; }
+    .contact-address a { text-decoration:underline; text-underline-offset:3px; }
+
   </style>
 </head>
 
@@ -650,14 +509,13 @@
         <img src="./logo.png" alt="Market Execs">
       </a>
 
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#package">Package</a>
         <a href="#about">About</a>
         <a href="#process">Process</a>
       </nav>
 
-      <a href="#contact" class="nav-cta">Let's Talk</a>
+      <a href="#contact" class="nav-cta">Email About the Offer</a>
     </div>
   </header>
 
@@ -666,138 +524,68 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="eyebrow">Digital Marketing & Creative</div>
+          <div class="eyebrow">Short-Form Content for Local Barbershops</div>
 
-          <h1>Make your brand impossible to ignore.</h1>
+          <h1>Show up consistently. Keep your chairs in view.</h1>
 
           <p class="hero-copy">
-           We help ambitious businesses build a stronger digital presence through content, websites and digital marketing that gets attention.
+            Market Execs turns footage from your shop into four edited vertical short-form videos for your first month, with four captions with relevant hashtags, a simple monthly content plan and one revision per video.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="button button-primary">Start a Project</a>
-            <a href="#services" class="button button-secondary">Explore Services</a>
+            <a href="#package" class="button button-primary">See the $100 First-Month Offer</a>
+            <a href="#contact" class="button button-secondary">Ask About the Founding Offer</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services">
+    <section id="package">
       <div class="container">
 
         <div class="section-head">
           <div>
-            <div class="section-label">01 / Services</div>
-            <h2 class="section-title">Everything your digital presence needs.</h2>
+            <div class="section-label">01 / Founding Client Package</div>
+            <h2 class="section-title">A simple monthly content rhythm for your shop.</h2>
           </div>
 
           <p class="section-description">
-            We focus on the creative and digital work that helps a business look credible, stay relevant and get noticed.
+            Founding-client offer: $100 for the first month. Includes 4 edited vertical short-form videos, 4 captions with relevant hashtags, a simple monthly content plan, and one revision per video. The client supplies the original footage. Posting and on-location filming are not included.
           </p>
         </div>
 
-        <div class="service-grid">
-
-          <article class="service">
-            <div class="service-number">01</div>
-            <h3>Social Media Content</h3>
-            <p>Strategic content designed to give your brand a stronger presence and a consistent voice online.</p>
-          </article>
-
-          <article class="service">
-            <div class="service-number">02</div>
-            <h3>Short-Form Video</h3>
-            <p>Scroll-stopping video concepts and edits built for the way people actually consume content today.</p>
-          </article>
-
-          <article class="service">
-            <div class="service-number">03</div>
-            <h3>Website Design</h3>
-            <p>Clean, modern websites that make your business look established and make it easier for customers to take action.</p>
-          </article>
-
-          <article class="service">
-            <div class="service-number">04</div>
-            <h3>Digital Marketing</h3>
-            <p>Creative marketing support focused on improving visibility, communication and customer acquisition.</p>
-          </article>
-
+        <div class="package-card">
+          <div class="package-price">
+            <span class="package-kicker">Founding client introductory price</span>
+            <p><strong>$100</strong><span> for the first month</span></p>
+          </div>
+          <div class="package-details">
+            <h3>Included in the first month</h3>
+            <ul class="package-list">
+              <li>4 edited vertical short-form videos</li>
+              <li>4 captions with relevant hashtags</li>
+              <li>A simple monthly content plan</li>
+              <li>One revision per video</li>
+            </ul>
+            <p class="package-note">You supply the original footage. Videos are delivered to you; direct posting to your social accounts is not included.</p>
+            <p class="package-note">On-location filming, paid ads and unlimited revisions are not included. One revision per video is included. We’ll agree on delivery expectations before work begins. The $100 price applies to the first month only; any renewal price must be agreed separately.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="work">
+    <section id="approach">
       <div class="container">
 
         <div class="section-head">
           <div>
-            <div class="section-label">02 / Selected Work</div>
-            <h2 class="section-title">Built to look as good as it performs.</h2>
+            <div class="section-label">02 / A Straightforward Start</div>
+            <h2 class="section-title">A focused first collaboration.</h2>
           </div>
 
           <p class="section-description">
-            A selection of concept work showing the creative direction and standard we bring to every project.
+            Market Execs is opening this introductory package to build its first barbershop client relationship. There are no client results or testimonials to claim yet. The goal is clear, consistent content built around your shop.
           </p>
-        </div>
-
-        <div class="work-grid">
-<div class="work-visual restaurant-visual"></div>
-         <article class="work-card">
-            <div class="work-tag">Concept / Social</div>
-            <h3>Restaurant Social Campaign</h3>
-            <p>Visual direction designed to make a local restaurant feel more memorable online.</p>
-          </article>
-<div class="work-visual realestate-visual"></div>
-           <article class="work-card">
-            <div class="work-tag">Concept / Content</div>
-            <h3>Real Estate Content</h3>
-            <p>Clean, confident content direction built around properties, people and attention.</p>
-          </article>
-<div class="work-visual fitness-visual"></div>
-          <article class="work-card">
-            <div class="work-tag">Concept / Short Form</div>
-            <h3>Fitness Brand Content</h3>
-            <p>High-energy creative direction designed for short-form platforms and repeat viewing.</p>
-          </article>
-<div class="work-visual launch-visual"></div>
-          <article class="work-card">
-            <div class="work-tag">Concept / Digital</div>
-            <h3>Brand Launch Direction</h3>
-            <p>A complete digital direction for a business preparing to make a stronger first impression.</p>
-          </article>
-
-        </div>
-
-        <p class="sample-note">
-          These concept projects showcase our creative direction. Client work and verified results will be added as Market Execs grows.
-        </p>
-
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-
-        <div class="stats">
-          <div class="stat">
-            <strong>04</strong>
-            <span>Core Services</span>
-          </div>
-
-          <div class="stat">
-            <strong>01</strong>
-            <span>Focused Goal</span>
-          </div>
-
-          <div class="stat">
-            <strong>∞</strong>
-            <span>Creative Direction</span>
-          </div>
-
-          <div class="stat">
-            <strong>24/7</strong>
-            <span>Digital Presence</span>
-          </div>
         </div>
 
       </div>
@@ -817,11 +605,11 @@
 
             <div class="about-copy">
               <p>
-                Market Execs is a digital marketing and creative studio built around one simple idea: attention is valuable, and your brand should know how to earn it.
+                Market Execs helps local barbershops turn their own shop footage into a steady set of short-form videos for social media.
               </p>
 
               <p>
-                From content and short-form video to websites and digital marketing, we combine strategy with creative execution to help businesses communicate with more confidence.
+                This first-month package includes four edited vertical short-form videos, four captions with relevant hashtags, a simple monthly content plan and one revision per video. You supply the original footage, keep control of your accounts and publish the delivered content yourself.
               </p>
             </div>
           </div>
@@ -836,11 +624,11 @@
         <div class="section-head">
           <div>
             <div class="section-label">04 / Process</div>
-            <h2 class="section-title">Simple process. Serious execution.</h2>
+            <h2 class="section-title">A clear process, agreed up front.</h2>
           </div>
 
           <p class="section-description">
-            No unnecessary complexity. We learn what matters, build the creative and launch with purpose.
+            We align on footage, revisions and delivery expectations before editing begins.
           </p>
         </div>
 
@@ -855,13 +643,13 @@
           <article class="step">
             <div class="step-number">02 / CREATE</div>
             <h3>Build</h3>
-            <p>We turn the strategy into content, design and digital experiences that fit your brand.</p>
+            <p>We edit four vertical short-form videos from your original footage, write four captions with relevant hashtags and prepare a simple monthly content plan.</p>
           </article>
 
           <article class="step">
             <div class="step-number">03 / LAUNCH</div>
             <h3>Execute</h3>
-            <p>We put the work into the world and keep improving based on what gets attention.</p>
+              <p>We deliver your videos, captions with relevant hashtags and simple monthly content plan, with one revision per video. You publish from your own account.</p>
           </article>
 
         </div>
@@ -871,17 +659,18 @@
     <section id="contact" class="contact">
       <div class="container contact-inner">
 
-        <div class="section-label">05 / Let's Talk</div>
+        <div class="section-label">05 / Get Started</div>
 
-        <h2>Ready to make your brand impossible to ignore?</h2>
+        <h2>Want to try a steadier video routine?</h2>
 
         <p>
-          Tell us what you're building, what isn't working and where you want to go. We'll take it from there.
+          Email your shop name, location, social account link and what kind of footage you can provide. We’ll reply to arrange a short conversation, answer questions and agree on the scope and delivery expectations before work starts.
         </p>
 
-        <a href="mailto:marketexecs.contact@gmail.com" class="button button-primary">
-          Start a Conversation
+        <a href="mailto:marketexecs.contact@gmail.com?subject=Barbershop%20founding%20client%20offer&amp;body=Hi%20Market%20Execs%2C%0A%0AShop%20name%3A%0ALocation%3A%0ASocial%20account%20link%3A%0AWhat%20footage%20I%20can%20provide%3A%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20the%20founding-client%20offer%3A%20%24100%20for%20the%20first%20month." class="button button-primary">
+          Email About the $100 First-Month Offer
         </a>
+        <p class="contact-address">Or email <a href="mailto:marketexecs.contact@gmail.com">marketexecs.contact@gmail.com</a></p>
 
       </div>
     </section>
@@ -897,18 +686,18 @@
           <img src="./logo.png" alt="Market Execs">
         </a>
 
-        <div class="footer-links">
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#package">Package</a>
+          <a href="#process">How It Works</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-        </div>
+        </nav>
 
       </div>
 
       <div class="footer-bottom">
         <span>© 2026 Market Execs. All rights reserved.</span>
-        <span>Built for brands that want to move.</span>
+        <span>Short-form content for local barbershops.</span>
       </div>
 
     </div>
@@ -916,3 +705,4 @@
 
 </body>
 </html>
+
